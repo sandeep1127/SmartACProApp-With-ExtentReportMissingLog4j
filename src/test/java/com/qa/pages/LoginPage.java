@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.baseClass.BaseTest;
 import com.qa.baseClass.TopMenu3Dots;
+import com.qa.utility.Utility;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -12,6 +13,7 @@ import io.appium.java_client.pagefactory.iOSXCUITFindBy;
 
 public class LoginPage extends BaseTest {   
 
+	
 	// For Defining the UI elements, we use @AndroidFindBy for ANDROID and @iOSXCUITFindBy for IOS providedte by PageFactopry Class
 	
 		// UI Elements
@@ -66,8 +68,8 @@ public class LoginPage extends BaseTest {
 		// Initializing UI elements via Page Factory :-
 		public LoginPage() {
 			
-			PageFactory.initElements(new AppiumFieldDecorator(driver), this);  // With the version of java client 9.1, now we need to initialize Page factory in every Page Class.	
-		}
+			PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);  // With the version of java client 9.1, now we need to initialize Page factory in every Page Class.	
+		}                                                                               // we updated Driver with GetDriver() method since we set Getter and setter Method for Thread safety for Parellel execution.
 		
 	
 	
@@ -76,14 +78,17 @@ public class LoginPage extends BaseTest {
 		
 		public LoginPage enterUserName(String username) {
 			clear(usernameTxtfld);
-			System.out.println("logging in with: "+ username );
+			System.out.println("logging in with: "+ username ); // Instead of this s.o.p we used Logger method
+			//utils.log().info("logging in with: "+ username);  // used logger to print the logs
+			
 			sendKeys(usernameTxtfld, username);
 		  return this;                                       // Since we will stay on the same screen, so returing the object of same page class
 		}
 		
 		
 		public LoginPage clickEmailLoginBtn() {
-			System.out.println("Pressing Email Log in button" );
+		System.out.println("Pressing Email Log in button" );
+			//utils.log().info("Pressing Email Log in button");
 			click(EmailLoginBtn);
 			return this;
 			
@@ -98,6 +103,7 @@ public class LoginPage extends BaseTest {
    		clear(passwordTxtfld);
 			sendKeys(passwordTxtfld, password);
 			System.out.println("logging in with: "+ password );
+			//utils.log().info("logging in with: "+ password);
 			return this;                                       // Since we will stay on the same screen, so returing the object of same page
 		}
 		
@@ -110,6 +116,7 @@ public class LoginPage extends BaseTest {
 		
 	
      public String passwordErrText() {
+    	
     	 return getText(errPasswordTxt);    // Fetching the Value of the attribute 'Text' of the webElement 'errPasswordTxt'
     	 
      }

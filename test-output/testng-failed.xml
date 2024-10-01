@@ -1,29 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]">
+<suite parallel="tests" name="Failed suite [Suite]">
   <listeners>
     <listener class-name="com.qa.listeners.TestListener"/>
   </listeners>
-  <test thread-count="5" name="Test(failed)">
+  <test thread-count="5" parallel="tests" name="Android_Nokia5.4(failed)">
     <parameter name="emulator" value="false"/>
     <parameter name="simulator" value="false"/>
-    <parameter name="platformVersion" value="13.0"/>
+    <parameter name="chromeDriverPort" value="11000"/>
     <parameter name="platformName" value="Android"/>
     <parameter name="udid" value="PD21BDD464038424"/>
-    <parameter name="deviceName" value="Pixel_7"/>
+    <parameter name="deviceName" value="Pixel_8"/>
     <parameter name="udidEmulator" value="emulator-5554"/>
+    <parameter name="systemPort" value="10002"/>
     <classes>
       <class name="com.qa.testClass.LoginPageTest">
         <methods>
           <include name="beforeMethod"/>
+          <include name="beforeMethodForVideo"/>
+          <include name="beforeMethodForVideo"/>
+          <include name="afterSuite"/>
           <include name="beforeTest"/>
           <include name="beforeClass"/>
-          <include name="afterMethod"/>
           <include name="afterTest"/>
+          <include name="afterMethod"/>
           <include name="invalidEmailErrText"/>
+          <include name="beforeSuite"/>
           <include name="afterClass"/>
         </methods>
       </class> <!-- com.qa.testClass.LoginPageTest -->
     </classes>
-  </test> <!-- Test(failed) -->
+  </test> <!-- Android_Nokia5.4(failed) -->
 </suite> <!-- Failed suite [Suite] -->

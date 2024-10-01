@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.baseClass.BaseTest;
 import com.qa.baseClass.TopMenu3Dots;
+import com.qa.utility.Utility;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import io.appium.java_client.pagefactory.AppiumFieldDecorator;
@@ -30,8 +31,8 @@ public class HomePage extends TopMenu3Dots {  // This extends TopMenuPage class 
 		
 		
 		public HomePage() {
-			
-			PageFactory.initElements(new AppiumFieldDecorator(driver), this);  // With the version of java client 9.1, now we need to initialize Page factory in every Page Class.	
+			//utils = new Utility();
+			PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);  // With the version of java client 9.1, now we need to initialize Page factory in every Page Class.	
 		}
 		
 	

@@ -33,8 +33,6 @@
 
 
 
- 	
-
 
 
 <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->           <!-- used in the method of Listener for screenshot for Failed test cases-->
@@ -44,9 +42,62 @@
     <version>2.16.1</version>
 </dependency>
 
+<!-- https://mvnrepository.com/artifact/commons-codec/commons-codec -->
+<dependency>
+    <groupId>commons-codec</groupId>
+    <artifactId>commons-codec</artifactId>
+    <version>1.16.1</version>
+</dependency>
 
 
 
+
+
+
+<!-- https://mvnrepository.com/artifact/org.testng/testng -->
+<dependency>
+    <groupId>org.testng</groupId>
+    <artifactId>testng</artifactId>
+    <version>7.10.2</version>
+    <scope>test</scope>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->                     <!--   we will add 2 depencies for Log4j. Akways use '. Apache Log4j Core' and . Apache Log4j API". Don't use Apache Log4J'-->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-core</artifactId>
+    <version>2.23.1</version>
+</dependency>
+
+<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-api -->
+<dependency>
+    <groupId>org.apache.logging.log4j</groupId>
+    <artifactId>log4j-api</artifactId>
+    <version>2.23.1</version>
+</dependency>
+
+
+
+<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports-testng-adapter -->
+<!-- 
+  <dependency>                                                                                       STEP 1 : Add this "ExtentReports adapter Dependency"". STEP 2 : Inside SaseClass use 1 liner "@Listeners(ExtentITestListenerAdapter.class)" listner before class starts  . STEP 3 :  Create extent.properties file inside test/resources and add pre written code there . STEP 4 :  create spart-config.xml file at root level & add pre written code there . THIS IS USED WHEN YOU WANT TO GENERATED A SINPLE LEVEL REPORT without any screenshots
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports-testng-adapter</artifactId>
+    <version>1.2.2</version>
+</dependency>
+
+-->
+
+<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->                 <!--2nd way for Extent reports : This is EXTENT REPORT dependency. Its better coz we can get screenshots of failed cases etc in this.-->    
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.1.2</version>
+</dependency>
+
+                                                                       
 
 
 </dependencies>

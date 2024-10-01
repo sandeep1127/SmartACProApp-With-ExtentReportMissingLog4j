@@ -3,6 +3,8 @@ import org.testng.annotations.Test;
 import com.qa.baseClass.BaseTest;
 import com.qa.pages.HomePage;
 import com.qa.pages.LoginPage;
+import com.qa.utility.Utility;
+
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
@@ -20,28 +22,34 @@ LoginPage loginPage;
 HomePage homePage;
 	
 // below 2 variables created for reading JSON file which is created for test data 
-InputStream datais;	  // We created this to use JSON Test DATA file we created in src/test/Resources . This is called adding ABSTRACTION layer to our Test Data
-JSONObject loginUsers;	 // we're creating JSON Object . It will contain all the Test Data of JSON.
+//InputStream datais;	  // We created this to use JSON Test DATA file we created in src/test/Resources . This is called adding ABSTRACTION layer to our Test Data . We moved this object from Global level to Method level for Thread Safety for parallel execution.
+JSONObject loginUsers;	 // we're creating JSON Object . It will contain all the Test Data of LoginUsers.JSON.  [we don't need to move it to Local variable since we're just reading it]
 	
 	
 	
   @BeforeMethod   
   public void beforeMethod(Method m) {                          // To Print the name of method running in the CONSOLE. So for this we're using METHOD Class
-	  loginPage = new LoginPage();      
-	  System.out.println("\n" + "******* Starting test:" + m.getName() + "*******" + "\n");     // This method "GetName()" will give the name of the testMethod which is currently executing
-	 
+	  loginPage = new LoginPage();  
+	
+	 System.out.println("\n" + "******* Starting test:" + m.getName() + "*******" + "\n");     // This method "GetName()" will give the name of the testMethod which is currently executing
+	 // utils.log().info("\n" + "******* Starting test:" + m.getName() + "*******" + "\n");  // used logger to print the logs instead od above SOP
+	  
+	  
 	 launchApp();
-	  System.out.println("\n" +"The app is launched" + "\n");   // before every method the app will get launched
+	 System.out.println("\n" +"The app is launched" + "\n");   // before every method the app will get launched
+	  //utils.log().info("\n" +"The app is launched" + "\n");  // used logger to print the logs instead od above SOP
   }
 
   @AfterMethod
   public void afterMethod() {
 	  closeApp();
 	  System.out.println("\n" +"The app is killed" + "\n");  // after every method the app will get killed
+	  //utils.log().info("\n" +"The app is killed" + "\n");  // used logger to print the logs instead od above SOP
   }
  
   @BeforeClass  // These method will always run even if any test case fails due to some exception.
   public void beforeClass() throws IOException {
+	  InputStream datais= null;	  // We created this to use JSON Test DATA file we created in src/test/Resources . This is called adding ABSTRACTION layer to our Test Data . We moved this object from Global level to Method level for Thread Safety for parallel execution.
 	  // Purpose of below code to read the JSON login test data from "json File" created in 'TestData' folder . 
 	 try {
 		 String dataFileName = "TestData/loginUsers.json" ;   // created STRING to store filePath. This is JSON file path which contains test data ie credentials for testing.  
@@ -83,9 +91,9 @@ JSONObject loginUsers;	 // we're creating JSON Object . It will contain all the 
 	  loginPage.enterUserName(loginUsers.getJSONObject("invalidUser").getString("username"));  // Instead of above code where we are hardcoding usernames, we are fetching test data fom JSON testdata File. where Object is "Invaliduser" and its key we need is "username". For this we wrote code in @Before Class
 	  loginPage.clickEmailLoginBtn();
 	  
-	  String actualErrText= loginPage.emailErrText() + "lalala";
+	  String actualErrText= loginPage.emailErrText() + "anc";
 	 // String expectedErrText= "Email address not found.";
-	  String expectedErrText= ExpectedResultStrings.get("errMsg_invalidEmail");  // Instead to hardcoding EXPECTED RESULTS strings here, we created a XML file 'expectedResults.xml' and fetch key|value from HashMap string 'ExpectedResultStrings' via 'getMthod() to get object Key.
+	  String expectedErrText= getExpectedResultsStrings().get("errMsg_invalidEmail" );  // Instead to hardcoding EXPECTED RESULTS strings here, we created a XML file 'expectedResults.xml' and fetch key|value from HashMap string 'ExpectedResultStrings' via 'getMthod() to get object Key.
 	  System.out.println("actual error Text is :" + actualErrText + "\n" + "Expected Error text is:" + expectedErrText);
 	  
 	  Assert.assertEquals(actualErrText, expectedErrText);  
@@ -102,7 +110,7 @@ JSONObject loginUsers;	 // we're creating JSON Object . It will contain all the 
 	  
 	  String actualErrText= loginPage.passwordErrText();
 	  // String expectedErrText= "Invalid credentials";
-	  String expectedErrText= ExpectedResultStrings.get("errMsg_invalidPassword"); // Instead to hardcoding EXPECTED RESULTS strings here, we created a XML file 'expectedResults.xml' and fetch key|value from HashMap string 'ExpectedResultStrings' via 'getMthod() to get object Key.
+	  String expectedErrText= getExpectedResultsStrings().get("errMsg_invalidPassword"); // Instead to hardcoding EXPECTED RESULTS strings here, we created a XML file 'expectedResults.xml' and fetch key|value from HashMap string 'ExpectedResultStrings' via 'getMthod() to get object Key.
 	  System.out.println("actual error Text is :" + actualErrText + "\n" + "Expected Error text is:" + expectedErrText);
 	  
 	  Assert.assertEquals(actualErrText, expectedErrText); 

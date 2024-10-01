@@ -7,12 +7,12 @@
 	},
 	
 	"invalidPassword": {
-			"username" : "demo@smartac.com",
+			"username" : "robert.lyon@smartac.com",
 			"password": "password123"
 		},
 	
 		"validUser": {
-					"username" : "demo@smartac.com",
+					"username" : "robert.lyon@smartac.com",
 					"password": "p@ssword10661"
 				}
 			

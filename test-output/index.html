@@ -50,7 +50,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Suite" class="navigator-link ">
-                    <span>C:\Users\schoudhary\eclipse-workspace\SmartACProApp\testng.xml</span>
+                    <span>D:\Eclipse-WorkSpace\SmartACProAppWithParallelExecution1server\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -148,10 +148,14 @@
                   <a name="invalidEmailErrText">
                   </a> <!-- invalidEmailErrText -->
                   <span class="method-name">invalidEmailErrText</span>
-                  <div class="stack-trace">java.lang.AssertionError: expected [Email address not found.] but found [Email address not found.lalala]
-	at com.qa.testClass.LoginPageTest.invalidEmailErrText(LoginPageTest.java:91)
+                  <div class="stack-trace">java.lang.AssertionError: expected [Email address not found.] but found [Email address not found.anc]
+	at com.qa.testClass.LoginPageTest.invalidEmailErrText(LoginPageTest.java:99)
 	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-... Removed 33 stack frames
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:842)
+... Removed 23 stack frames
 </div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
@@ -182,28 +186,29 @@
         </div> <!-- panel Suite -->
         <div panel-name="test-xml-Suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\schoudhary\eclipse-workspace\SmartACProApp\testng.xml</span>
+            <span class="header-content">D:\Eclipse-WorkSpace\SmartACProAppWithParallelExecution1server\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Suite&quot;&gt;
+&lt;suite parallel=&quot;tests&quot; name=&quot;Suite&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.qa.listeners.TestListener&quot;/&gt;
   &lt;/listeners&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Test&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; parallel=&quot;tests&quot; name=&quot;Android_Nokia5.4&quot;&gt;
     &lt;parameter name=&quot;emulator&quot; value=&quot;false&quot;/&gt;
     &lt;parameter name=&quot;simulator&quot; value=&quot;false&quot;/&gt;
-    &lt;parameter name=&quot;platformVersion&quot; value=&quot;13.0&quot;/&gt;
+    &lt;parameter name=&quot;chromeDriverPort&quot; value=&quot;11000&quot;/&gt;
     &lt;parameter name=&quot;platformName&quot; value=&quot;Android&quot;/&gt;
     &lt;parameter name=&quot;udid&quot; value=&quot;PD21BDD464038424&quot;/&gt;
-    &lt;parameter name=&quot;deviceName&quot; value=&quot;Pixel_7&quot;/&gt;
+    &lt;parameter name=&quot;deviceName&quot; value=&quot;Pixel_8&quot;/&gt;
     &lt;parameter name=&quot;udidEmulator&quot; value=&quot;emulator-5554&quot;/&gt;
+    &lt;parameter name=&quot;systemPort&quot; value=&quot;10002&quot;/&gt;
     &lt;classes&gt;
       &lt;class name=&quot;com.qa.testClass.LoginPageTest&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Test --&gt;
+  &lt;/test&gt; &lt;!-- Android_Nokia5.4 --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -215,7 +220,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Test (1 class)</span>
+                <span class="test-name">Android_Nokia5.4 (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -243,22 +248,22 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'validLogin')
+data.setCell(0, 1, 'invalidPasswordErrText')
 data.setCell(0, 2, 'com.qa.testClass.LoginPageTest')
-data.setCell(0, 3, 15623);
+data.setCell(0, 3, 17572);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'invalidPasswordErrText')
+data.setCell(1, 1, 'validLogin')
 data.setCell(1, 2, 'com.qa.testClass.LoginPageTest')
-data.setCell(1, 3, 13036);
+data.setCell(1, 3, 16586);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'invalidEmailErrText')
 data.setCell(2, 2, 'com.qa.testClass.LoginPageTest')
-data.setCell(2, 3, 8292);
+data.setCell(2, 3, 7956);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 36 seconds</span>
+              <span class="suite-total-time">Total running time: 1 minutes</span>
               <div id="times-div-Suite">
               </div> <!-- times-div-Suite -->
             </div> <!-- times-div -->
@@ -272,8 +277,8 @@ return data;
             <div class="reporter-method-div">
               <span class="reporter-method-name">invalidEmailErrText</span>
               <div class="reporter-method-output-div">
-                <span class="reporter-method-output">This is the Screenshot of faile test cases</span>
-                <span class="reporter-method-output"><a href='C:\Users\schoudhary\eclipse-workspace\SmartACProApp\ScreenShots\Android_13.0_Pixel_7\2024-09-23-20-02-29\LoginPageTest\invalidEmailErrText.png'> <img src='C:\Users\schoudhary\eclipse-workspace\SmartACProApp\ScreenShots\Android_13.0_Pixel_7\2024-09-23-20-02-29\LoginPageTest\invalidEmailErrText.png' height='400' width='400'/> </a></span>
+                <span class="reporter-method-output">This is the Screenshot of failed test cases</span>
+                <span class="reporter-method-output"><a href='D:\Eclipse-WorkSpace\SmartACProAppWithParallelExecution1server\FailedCasesScreenShots\Android_Pixel_8\2024-10-01-19-08-04\LoginPageTest\invalidEmailErrText.png'> <img src='D:\Eclipse-WorkSpace\SmartACProAppWithParallelExecution1server\FailedCasesScreenShots\Android_Pixel_8\2024-10-01-19-08-04\LoginPageTest\invalidEmailErrText.png' height='100' width='100'/> </a></span>
               </div> <!-- reporter-method-output-div -->
             </div> <!-- reporter-method-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -292,60 +297,92 @@ return data;
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
               <div class="chronological-class-name">com.qa.testClass.LoginPageTest</div> <!-- chronological-class-name -->
-              <div class="configuration-test before">
-                <span class="method-name">beforeTest(false, false, Android, Pixel_7, 13.0, PD21BDD464038424, emulator-5554)</span>
+              <div class="configuration-suite before">
+                <span class="method-name">beforeSuite</span>
                 <span class="method-start">0 ms</span>
+              </div> <!-- configuration-suite before -->
+              <div class="configuration-test before">
+                <span class="method-name">beforeTest(false, false, Android, Pixel_8, PD21BDD464038424, emulator-5554, 10002, 11000, iOSOnly, iOSOnly)</span>
+                <span class="method-start">2509 ms</span>
               </div> <!-- configuration-test before -->
               <div class="configuration-class before">
                 <span class="method-name">beforeClass</span>
-                <span class="method-start">8546 ms</span>
+                <span class="method-start">17644 ms</span>
               </div> <!-- configuration-class before -->
               <div class="configuration-method before">
+                <span class="method-name">beforeMethodForVideo</span>
+                <span class="method-start">17654 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void com.qa.testClass.LoginPageTest.invalidEmailErrText())</span>
-                <span class="method-start">8555 ms</span>
+                <span class="method-start">18518 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <img src="failed.png">
                 </img>
                 <span class="method-name">invalidEmailErrText</span>
-                <span class="method-start">9158 ms</span>
+                <span class="method-start">19285 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">18295 ms</span>
+                <span class="method-start">28081 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">beforeMethodForVideo([TestResult name=invalidEmailErrText status=FAILURE method=LoginPageTest.invalidEmailErrText()[pri:0...)</span>
+                <span class="method-start">28673 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
+                <span class="method-name">beforeMethodForVideo</span>
+                <span class="method-start">39359 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void com.qa.testClass.LoginPageTest.invalidPasswordErrText())</span>
-                <span class="method-start">19086 ms</span>
+                <span class="method-start">40186 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">invalidPasswordErrText</span>
-                <span class="method-start">19317 ms</span>
+                <span class="method-start">40510 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">32355 ms</span>
+                <span class="method-start">58085 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">beforeMethodForVideo([TestResult name=invalidPasswordErrText status=SUCCESS method=LoginPageTest.invalidPasswordErrText()...)</span>
+                <span class="method-start">58901 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-method before">
+                <span class="method-name">beforeMethodForVideo</span>
+                <span class="method-start">60581 ms</span>
+              </div> <!-- configuration-method before -->
+              <div class="configuration-method before">
                 <span class="method-name">beforeMethod(public void com.qa.testClass.LoginPageTest.validLogin())</span>
-                <span class="method-start">32968 ms</span>
+                <span class="method-start">61366 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">validLogin</span>
-                <span class="method-start">33270 ms</span>
+                <span class="method-start">61714 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">afterMethod</span>
-                <span class="method-start">48897 ms</span>
+                <span class="method-start">78304 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="configuration-method after">
+                <span class="method-name">beforeMethodForVideo([TestResult name=validLogin status=SUCCESS method=LoginPageTest.validLogin()[pri:0, instance:com.qa....)</span>
+                <span class="method-start">78986 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-class after">
                 <span class="method-name">afterClass</span>
-                <span class="method-start">49570 ms</span>
+                <span class="method-start">80599 ms</span>
               </div> <!-- configuration-class after -->
               <div class="configuration-test after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">49576 ms</span>
+                <span class="method-start">80601 ms</span>
               </div> <!-- configuration-test after -->
+              <div class="configuration-suite after">
+                <span class="method-name">afterSuite</span>
+                <span class="method-start">81296 ms</span>
+              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

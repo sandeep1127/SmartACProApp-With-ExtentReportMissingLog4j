@@ -20,7 +20,7 @@ LoginPage loginPage;
 HomePage homePage;
 	
 // below 2 variables created for reading JSON file which is created for test data 
-InputStream datais;	  // We created this to use JSON Test DATA file we created in src/test/Resources . This is called adding ABSTRACTION layer to our Test Data
+ //InputStream datais;	  // We created this to use JSON Test DATA file we created in src/test/Resources . This is called adding ABSTRACTION layer to our Test Data
 JSONObject loginUsers;	 // we're creating JSON Object . It will contain all the Test Data of JSON.
 	
 	
@@ -38,6 +38,9 @@ JSONObject loginUsers;	 // we're creating JSON Object . It will contain all the 
 
   @BeforeClass
   public void beforeClass() throws IOException {
+	  
+	  InputStream datais= null;	  // We created this to use JSON Test DATA file we created in src/test/Resources . This is called adding ABSTRACTION layer to our Test Data . We moved this object from Global level to Method level for Thread Safety for parallel execution.
+	  
 	  // Purpose of below code to read the JSON login test data from "json File" created in 'TestData' folder . 
 	 try {
 		 String dataFileName = "TestData/loginUsers.json" ;   // created STRING to store filePath. This is JSON file path which contains test data ie credentials for testing.  

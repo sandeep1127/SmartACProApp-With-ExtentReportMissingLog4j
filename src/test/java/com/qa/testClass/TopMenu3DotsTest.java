@@ -33,7 +33,7 @@ public class TopMenu3DotsTest extends TopMenu3Dots {  // This extends TopMenuPag
 		
 		public TopMenu3DotsTest() {
 			
-			PageFactory.initElements(new AppiumFieldDecorator(driver), this);  // With the version of java client 9.1, now we need to initialize Page factory in every Page Class.	
+			PageFactory.initElements(new AppiumFieldDecorator(getDriver()), this);  // With the version of java client 9.1, now we need to initialize Page factory in every Page Class.	
 		}
 		
 	
