@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite parallel="tests" name="Suite">    <!-- Set value of 'parallel' to 'tests' from 'false' since we want to run 2 below test blocks in parallel-->
+
+
+
+<!--BASICALLY one <test> block represents 1 device , so if you want to use multiple device, just copy and paste another same test complete block here . Just change 'SystemPortvalue' parameter if android  and 'WdaLocalPort'' if its IOS device-->
+
+  <!--<test name="Android_Nokia5.4">    we made this Test Group for ANDROID and Below one for IOS
+  <listeners>                 We're using this LISTENER here at suite level so that every class can make use of this listener. Details of this Listener are given in TestListner class. We always need to provide Listner here to let TestNG use it
+  <listener class-name="com.qa.listeners.TestListener"/>    giving the name of PACKAGE +Listener class 
+ </listeners>
+ 
+ 
+  <parameter name= "emulator" value ="false"/>          update it to value 'true/false' as per need. If you want to use Andrid emulator, make it true and for Real device make it 'false'. settings done in Base Class
+  <parameter name= "simulator" value ="false"/>         update it to value 'true/false' as per need. If you want to use IOS  emulator, make it true and for Real device make it 'false'
+  <parameter name= "platformName" value ="Android"/>    Added some capabilities here and others are in Config File
+  <parameter name= "platformVersion" value ="13.0"/>    we can remove it as we would use UDID . This will be used when you use emulator . If Platform version is same for Emulator and for real device, then it causues issue, so appium will use UDID if its real, otherwise PLATFORMVERSION if its  emulator 
+  <parameter name= "deviceName" value ="Pixel_8"/>
+  <parameter name= "udid" value ="PD21BDD464038424"/>  This can be used when you use REAL device. Although we can use it for Emulator as well
+  <parameter name= "udidEmulator" value ="emulator-5554"/>
+  <parameter name= "systemPort" value ="10002"/>
+  <parameter name= "chromeDriverPort" value ="11000"/>   This capability will be used if we want to use WebView functionality in our device, otherwise not needed
+  
+    <classes>
+      <class name="com.qa.testClass.LoginPageTest"/>            Adding the Test classes which needs to be run.
+       <methods>
+       <include name= "invalidUserName"/>
+       </methods>
+        </class> 
+         </classes>                                                    If you want to run only specific test cases of specific class then use the Tag 'methods' under tag 'class' and remove '/' in class tag from the end of testclass name. under 'methods' cus tag 'include' and  use  name= "[testcasenameYouWnattoRun]/" and then close methods tag and class tag              
+  </test>  Test -->
+  
+  
+  
+  <test name="iOS">                        <!--we made this Test Group for IOS phone and above one for Android phone-->
+   <listeners>                 <!--We're using this LISTENER here at suite level so that every class can make use of this listener. Details of this Listener are given in TestListner class. We always need to provide Listner here to let TestNG use it-->
+  <listener class-name="com.qa.listeners.TestListener"/>    <!--giving the name of PACKAGE +Listener class--> 
+ </listeners>
+ 
+  <parameter name= "simulator" value ="false"/>         <!--update it to value 'true/false' as per need. If you want to use IOS  emulator, make it true and for Real device make it 'false'-->
+  <parameter name= "platformName" value ="iOS"/>    <!--Added some capabilities here and others are in Config File-->
+  <parameter name= "platformVersion" value ="13.0"/>   <!-- we can remove it as we would use UDID . This will be used when you use emulator . If Platform version is same for Emulator and for real device, then it causues issue, so appium will use UDID if its real, otherwise PLATFORMVERSION if its  emulator -->
+  <parameter name= "deviceName" value ="iPhone XS"/>
+  <parameter name= "udid" value ="PD21BDD464038424"/>  <!--This can be used when you use REAL device. Although we can use it for Emulator as well-->
+  <parameter name= "WdaLocalPort" value ="10001"/>
+  <parameter name= "webkitDebugProxyPort" value ="11001"/>
+  
+   <classes>
+      <class name="com.qa.testClass.LoginPageTest"> </class>            <!--Adding the Test classes which needs to be run.-->
+       <!--<methods>
+       <include name= "invalidUserName"/>
+       </method-->s>
+        
+         </classes>                                                    <!--If you want to run only specific test cases of specific class then use the Tag 'methods' under tag 'class' and remove '/' in class tag from the end of testclass name. under 'methods' cus tag 'include' and  use  name= "[testcasenameYouWnattoRun]/" and then close methods tag and class tag-->              
+  </test>  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+</suite> <!-- Suite -->

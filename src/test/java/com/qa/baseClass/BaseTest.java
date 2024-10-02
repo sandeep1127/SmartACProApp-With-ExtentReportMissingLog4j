@@ -199,7 +199,11 @@ public class BaseTest {
 	
    @BeforeSuite
    public void beforeSuite() {
-   server = getAppiumServerDefault(); // already method used to run the APPIUM SERVER. we are just passing that into variable
+       // Using below method when you machine is MAC and comment method "getAppiumServerDefault" when using MAC machine . 
+	    //server = getAppiumService();
+	  
+	   // Use below method when using WINDOWS System and comment above MAC method
+	   server = getAppiumServerDefault(); // already method used to run the APPIUM SERVER. we are just passing that into variable
 	  
 	  if (!server.isRunning()) {  // To check if Appium server is not running, only then start the server . IN ACTUAL this is not of any user coz in actual Even if Sever is running, it will still not go inside ELSE block. Dnot sure why it happens but tests will run.
 		  server.start();  // This will start the Appium server

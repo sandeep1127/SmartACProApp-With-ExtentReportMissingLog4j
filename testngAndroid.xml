@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite parallel="tests" name="Suite">    <!-- Set value of 'parallel' to 'tests' from 'false' since we want to run 2 below test blocks in parallel-->
 
-
+<!--WE HAVE CRETED SEPARATE TESTNG xml FILES FOR Android and Ios platforms-->
 
 <!--BASICALLY one <test> block represents 1 device , so if you want to use multiple device, just copy and paste another same test complete block here . Just change 'SystemPortvalue' parameter if android  and 'WdaLocalPort'' if its IOS device-->
 
@@ -22,13 +22,26 @@
   <parameter name= "chromeDriverPort" value ="11000"/>   <!--This capability will be used if we want to use WebView functionality in our device, otherwise not needed-->
   
     <classes>
-      <class name="com.qa.testClass.LoginPageTest"/>            <!--Adding the Test classes which needs to be run.-->
+      <class name="com.qa.testClass.LoginPageTest">  </class>           <!--Adding the Test classes which needs to be run.-->
        <!--<methods>
        <include name= "invalidUserName"/>
        </methods>
         </class> -->
          </classes>                                                   <!-- If you want to run only specific test cases of specific class then use the Tag 'methods' under tag 'class' and remove '/' in class tag from the end of testclass name. under 'methods' cus tag 'include' and  use  name= "[testcasenameYouWnattoRun]/" and then close methods tag and class tag  -->            
   </test> <!-- Test -->
+  
+  
+  
+  
+  
+ <!-- COMMAND TO USE in CMD promot of WINDOWS, when want to run Android testNG : mvn test -Dsurefire.suiteXmlFiles=testngAndroid.xml-->
+ <!--COMMAND to stop APPIUM server in windows from cmd line : 1st command:  netstat -ano|findstr "PID :4723    2nd command : taskkill /pid 18264 /f-->
+  
+  
+  
+  
+  
+  
   
   
   
